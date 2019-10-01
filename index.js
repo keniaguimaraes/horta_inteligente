@@ -12,10 +12,10 @@ const app = express();
 
 //Create Connection
 const conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'crud_db'
+   host: 'db4free.net', // O host do banco. Ex: localhost
+    user: 'horta11', // Um usuário do banco. Ex: user 
+    password: 'abacaxi11', // A senha do usuário. Ex: user123
+    database: 'horta11' // A base de dados a qual a aplicação irá se conectar, deve ser 
 });
 
 //connect to database
@@ -71,8 +71,8 @@ app.post('/delete',(req, res) => {
       res.redirect('/');
   });
 });
-
+ 
 //server listening
-app.listen(8000, () => {
-  console.log('Server is running at port 8000');
+app.listen(8080, () => {
+  console.log('Server is running at port 8080');
 });
