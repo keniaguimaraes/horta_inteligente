@@ -1,31 +1,45 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>CRUD Node.js and Mysql</title>
+	<title>Horta Inteligente</title>
   <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
   <div class="container">
-    <h2>Product List</h2>
-		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+    <h2 class="text-success">Horta Inteligente</h2>
+    <h4>Informações sobre o Plantio</h4>
+		<!--<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>-->
     <table class="table table-striped" id="mytable">
       <thead>
         <tr>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>Action</th>
+          <th>Plantio ID</th>
+          <th>Id </th>
+          <th>Tipo</th>
+          <th>Semente</th>
+          <th>Nome Científico</th>
+          <th>Lote</th>
+          <th>Geolocalizaçao</th>
+          <th>Solo</th>
+           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
          {{#each results}}
         <tr>
-          <td>{{ product_id }}</td>
-          <td>{{ product_name }}</td>
-          <td>{{ product_price }}</td>
+          <td>{{ plantio_id}}</td>
+          <td>{{ id }}</td>
+          <td>{{ tipo_semente }}</td>
+          <td>{{ nome_conhecido }}</td>
+          <td>{{ nome_cientifico }}</td>
+          <td>{{lote}}</td>
+          <td>{{geolocalizacao}}</td>
+          <td>{{solo}}</td>
           <td>
-            <a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ product_id }}" data-product_name="{{ product_name }}" data-product_price="{{ product_price }}">Edit</a>
-            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ product_id }}">Delete</a>
+            <!--<a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ product_id }}" data-product_name="{{ product_name }}" data-product_price="{{ product_price }}">Edit</a>
+            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ id }}">Delete</a>-->
+            <a href="javascript:void(0);" class="btn btn-sm btn-info edit" >Ciclo</a>
+            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete">Irrigação</a>
           </td>
         </tr>
         {{/each}}

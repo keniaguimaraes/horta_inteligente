@@ -35,10 +35,11 @@ app.use('/assets',express.static(__dirname + '/public'));
 
 //route for homepage
 app.get('/',(req, res) => {
-  let sql = "SELECT * FROM product";
+  let sql = "SELECT tipo_solo.descricao as solo, tipo_semente.descricao as tipo_semente, semente.* FROM semente join tipo_solo on tipo_solo.id = semente.tipo_solo_id join tipo_semente on tipo_semente.id = semente.tipo_semente_id ";
+  
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
-    res.render('product_view',{
+    res.render('plantio_view',{
       results: results
     });
   });
