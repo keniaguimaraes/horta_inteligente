@@ -71,8 +71,11 @@ app.post('/delete',(req, res) => {
       res.redirect('/');
   });
 });
- 
+ // set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
+
 //server listening
-app.listen(8080, () => {
-  console.log('Server is running at port 8080');
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
