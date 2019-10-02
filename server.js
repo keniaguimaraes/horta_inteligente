@@ -15,7 +15,8 @@ const conn = mysql.createConnection({
    host: 'db4free.net', // O host do banco. Ex: localhost
     user: 'horta11', // Um usuário do banco. Ex: user 
     password: 'abacaxi11', // A senha do usuário. Ex: user123
-    database: 'horta11' // A base de dados a qual a aplicação irá se conectar, deve ser 
+    database: 'horta11', // A base de dados a qual a aplicação irá se conectar, deve ser 
+    multipleStatements: true
 });
 
 //connect to database
@@ -35,11 +36,26 @@ app.use('/assets',express.static(__dirname + '/public'));
 
 //route for homepage
 app.get('/',(req, res) => {
+  let sql = "select * from vwInformacaoPlantio;select * from vwDetalhesPlantio";
+ // let sql2 = "select * from vwDetalhesPlantio;";
+
+  let query = conn.query(sql,[2, 1], (err,results,fields) => {
+    if(err) throw err;
+   
+   // console.log(results[0]);
+  //  console.log(results[1]);
+      res.render('plantio_view',{resultado: results[0], info:results[1]});
+
+  });
+});
+
+
+app.get('/semente',(req, res) => {
   let sql = "SELECT tipo_solo.descricao as solo, tipo_semente.descricao as tipo_semente, semente.* FROM semente join tipo_solo on tipo_solo.id = semente.tipo_solo_id join tipo_semente on tipo_semente.id = semente.tipo_semente_id ";
   
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
-    res.render('plantio_view',{
+    res.render('semente.hbs',{
       results: results
     });
   });

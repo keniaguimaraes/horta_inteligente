@@ -11,36 +11,39 @@
 		<!--<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>-->
     <table class="table table-striped" id="mytable">
       <thead>
-        
+        <tr>
+          <th>Plantio ID</th>
+          <th>Id </th>
+          <th>Tipo</th>
+          <th>Semente</th>
+          <th>Nome Científico</th>
+          <th>Lote</th>
+          <th>Geolocalizaçao</th>
+          <th>Solo</th>
+           <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
-
-                
-            {{#each resultado}}
-                <div class="card">
-                  <div class="card-header"> <b>Plantio {{id}}</b>                  <b>Responsável: </b>{{usuario}}              <b>Data Plantio:</b> {{data_plantio}}</div>
-                  <div class="card-body">
-                
-                    <p class="card-text">
-            
-                {{#each ../info}}
-              
-                    <div class="row">
-                      <div class="col"> {{nome_conhecido}}</div>
-                      <div class="col">{{qtd_semente}}</div>
-                    </div>
-
-                     {{/each}}
-              
-                      
-                    </p>
-                    <a href="/semente" class="btn btn-primary">Detalhes</a>
-                  </div>
-                </div>
-                <br>
-            {{/each}}
-            
-      
+         {{#each results}}
+        <tr>
+          <td>{{ plantio_id}}</td>
+          <td>{{ id }}</td>
+          <td>{{ tipo_semente }}</td>
+          <td>{{ nome_conhecido }}</td>
+          <td>{{ nome_cientifico }}</td>
+          <td>{{lote}}</td>
+          <td>{{geolocalizacao}}</td>
+          <td>{{solo}}</td>
+          <td>
+            <!--<a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ product_id }}" data-product_name="{{ product_name }}" data-product_price="{{ product_price }}">Edit</a>
+            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ id }}">Delete</a>-->
+            <a href="javascript:void(0);" class="btn btn-sm btn-info edit" >Ciclo</a>
+            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete">Irrigação</a>
+          </td>
+        </tr>
+        {{/each}}
+       
       </tbody>
     </table>
   </div>
@@ -141,7 +144,7 @@
         $('.product_id').val(product_id);
       });
 			//showing modal for delete record
-			$('#mytable').on('click','.delete',function(){
+	$('#mytable').on('click','.delete',function(){
         var product_id = $(this).data('id');
         $('#DeleteModal').modal('show');
         $('.product_id2').val(product_id);
