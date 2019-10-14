@@ -1,14 +1,12 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+# Horta Inteligente
 
+ A proposta da aplicação é a demonstração das funcionalidades do banco de dados elaborado na disciplina de Laborátorio de Banco de Dados.
+ 
+### Colaboradores
+ - Kênia Guimarães 
+ - Danilo Brito
+ 
+### Tecnologias 
+    $ Node
+    $ MySQL 8.0
 
-Hi there! Welcome to AWS Cloud9!
-
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
-
-Happy coding!
